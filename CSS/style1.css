@@ -1,31 +1,34 @@
 /*Encabezado*/
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;700&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'IBM Plex Sans Devanagari', sans-serif;
     background-color: #751102;
 }
 
 
-.menu__logo{ 
+.menu__logo {
     height: 80px;
     padding: 0 0 5px 0;
     -webkit-animation: rotate 5s normal linear infinite;
-  animation: rotate 5s normal linear infinite;
+    animation: rotate 5s normal linear infinite;
 }
-.menu{
+
+.menu {
     background-color: #fff;
     color: #b87400;
     height: 70px;
     box-shadow: 0px 2px 10px #010101;
 }
-.menu__container{
+
+.menu__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,50 +36,54 @@ body{
     max-width: 1200px;
     height: 100%;
     margin: 0 auto;
-    
+
 }
 
-.menu__links{
+.menu__links {
     height: 100%;
     transition: transform .5s;
     display: flex;
     z-index: 1;
 }
-.menu__item{
+
+.menu__item {
     list-style: none;
     position: relative;
     height: 100%;
     --clip: polygon(0 0, 100% 0, 100% 0, 0 0);
     --transform: rotate(-90deg);
-    
+
 }
-.menu__item:hover{
+
+.menu__item:hover {
     --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     --transform: rotate(0);
-    
+
 }
-.menu__link{
+
+.menu__link {
     color: #f6a700;
     text-decoration: none;
     padding: 0 30px;
     display: flex;
     height: 100%;
     align-items: center;
-    
+
 }
-.menu__link:hover{
+
+.menu__link:hover {
     background-color: #c6c6c6;
 }
 
-.menu__arrow{
+.menu__arrow {
     transform: var(--transform);
     transition: transform .3s;
     display: block;
     margin-left: 3px;
-    
+
 }
 
-.menu__nesting{
+.menu__nesting {
     list-style: none;
     transition: clip-path .3;
     clip-path: var(--clip);
@@ -85,16 +92,19 @@ body{
     bottom: 0;
     width: max-content;
     transform: translateY(100%);
-    background-color:#fff;
-    
+    background-color: #fff;
+
 }
-.menu__link--inside{
+
+.menu__link--inside {
     padding: 30px 100px 30px 20px;
 }
-.menu__link--inside:hover{
+
+.menu__link--inside:hover {
     background-color: #c6c6c6;
 }
-.menu__hamburguer{
+
+.menu__hamburguer {
     height: 100%;
     display: flex;
     align-items: center;
@@ -102,20 +112,76 @@ body{
     cursor: pointer;
     display: none;
 }
-.menu__img{
+
+.menu__img {
     display: block;
-    width: 36px; 
+    width: 36px;
 }
 
 /*Menu*/
-.img{
-    background-color: #f6a700;
-    
+
+.contenedor {
+    width: 100%;
+    margin: auto;
     justify-content: center;
     align-items: center;
 }
+.precios {
+    background-color: #C11B1B;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.precios:hover{
+    background-color: #B61212;
+}
 
+.precios p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
 
+.imagenes {
+    width: 100%;
+}
+
+.persona__columna {
+    margin: 15px;
+}
+
+.personas .contenedor {
+    display: grid;
+}
+
+@media(min-width:520px) {
+    .personas .contenedor {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media(min-width:728px) {
+    .personas .contenedor {
+        grid-template-columns: repeat(3, 33.3%);
+    }
+}
+
+@media(min-width:1024px) {
+    .personas .contenedor {
+
+        grid-template-columns: repeat(3, 25%);
+    }
+
+    .contenedor {
+        width: 1024px;
+    }
+}
+
+@media(min-width:1200px) {
+    .contenedor {
+        width: 1200px;
+    }
+}
 
 
 
@@ -133,16 +199,17 @@ footer {
     justify-content: center;
     align-items: center;
 }
-  
-  .social-icons-container, .footer-menu-container {
+
+.social-icons-container,
+.footer-menu-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin: 1rem;
 }
-  
-  .social-icon {
+
+.social-icon {
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -152,74 +219,103 @@ footer {
     background-repeat: no-repeat;
     margin: 0.5rem;
     transition: all 0.3s ease-in-out;
+
+    animation-name: cambio-color;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
-  
-  .social-icon:hover {
+
+.social-icon:hover {
     background-color: #121212;
     filter: invert(1);
 }
-  
-  .footer-menu-container {
+
+.footer-menu-container {
     list-style-type: none;
     color: #b87400;
     font-size: 14px;
     margin: 1rem;
 }
-  
-  .menu-item {
+
+.menu-item {
     margin: 0 1rem;
     cursor: pointer;
     opacity: 0.6;
     transition: all 0.3s ease-in-out;
 }
-  
-  .menu-item:hover {
+
+.menu-item:hover {
     opacity: 1;
 }
-  
-@keyframes rotate{
+
+/*Animación*/
+@keyframes rotate {
     0% {
         -webkit-transform: rotate3d(0, 1, 0, 0deg);
         transform: rotate3d(0, 1, 0, 0deg);
-      }
-      25% {
+    }
+
+    25% {
         -webkit-transform: rotate3d(0, 1, 0, 90deg);
         transform: rotate3d(0, 1, 0, 90deg);
-      }
-      50% {
+    }
+
+    50% {
         -webkit-transform: rotate3d(0, 0, 1, 180deg);
         transform: rotate3d(0, 1, 0, 180deg);
-      }
-      75% {
+    }
+
+    75% {
         -webkit-transform: rotate3d(0, 0, 1, 270deg);
         transform: rotate3d(0, 1, 0, 270deg);
-      }
-      100% {
+    }
+
+    100% {
         -webkit-transform: rotate3d(0, 0, 1, 360deg);
         transform: rotate3d(0, 1, 0, 360deg);
-      }
-    
+    }
+
+}
+@keyframes cambio-color {
+    0% {
+      background-color: #B61212;
+    }
+    50%{
+        background-color: #c6c6c6;
+    }
+    100% {
+      background-color: #B61212;
+    }
 }
 
-@media (max-width:800px){
-    header{
+/*Responsivo*/
+
+@media (max-width:800px) {
+
+    header {
         width: 100%;
     }
-    .menu__hamburguer{
+
+    .menu__hamburguer {
         display: flex;
     }
-    .menu__item{
-        --clip:0;
+
+    .menu__item {
+        --clip: 0;
         overflow: hidden;
     }
-    .menu__item--active{
+
+    .menu__item--active {
         --transform: rotate(0);
         --background: #c6c6c6;
     }
-    .menu__item--show{
+
+    .menu__item--show {
         background-color: var(--background);
     }
-    .menu__links{
+
+    .menu__links {
         position: fixed;
         max-width: 400px;
         width: 100%;
@@ -232,20 +328,24 @@ footer {
         grid-auto-rows: max-content;
         transform: translateX(100%);
     }
-     .menu__links--show{
+
+    .menu__links--show {
         transform: unset;
         width: 100%;
     }
-    .menu__link{
+
+    .menu__link {
         padding: 25px 0;
         padding-left: 30px;
         height: auto;
     }
-    .menu__arrow{
+
+    .menu__arrow {
         margin-left: auto;
         margin-right: 20px;
     }
-    .menu__nesting{
+
+    .menu__nesting {
         display: grid;
         position: unset;
         width: 100%;
@@ -253,12 +353,14 @@ footer {
         height: 0;
         transition: height .3s;
     }
-    .menu__link--inside{
+
+    .menu__link--inside {
         width: 90%;
         margin-left: auto;
         border-left: 1px solid #c6c6c6;
     }
-    .parrafo{
+
+    .parrafo {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -267,25 +369,35 @@ footer {
         position: absolute;
         bottom: 0;
     }
-    
-    .ENTREGA{
-        padding:  0 10px 0;
+
+    .ENTREGA {
+        padding: 0 10px 0;
     }
-    .DESAYUNOS{
+
+    .DESAYUNOS {
         padding: 10px 0 0;
     }
-    .PAGO{
+
+    .PAGO {
         padding: 10px 0 0;
     }
-    .parrafo h1{
+    .persona__columna {
+        margin: 15px;
+        padding: 80px 0 0 0;
+    }
+    .parrafo h1 {
         font-size: 14px;
         margin-bottom: 10px;
     }
-    .parrafo p{
+
+    .parrafo p {
         font-size: 12px;
         line-height: 1.3;
     }
-    .a, .b, .c{
+
+    .a,
+    .b,
+    .c {
         height: 50px;
     }
 }
