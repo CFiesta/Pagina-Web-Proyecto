@@ -375,9 +375,7 @@ footer {
     .menu__item--show {
         background-color: var(--background);
     }
-    footer{
-        position: absolute;
-    }
+    
     .menu__links {
         position: fixed;
         max-width: 400px;
